@@ -12,7 +12,7 @@ class Starter {
      */
     AddPrefixToString(prefix, string) {
         // TODO: Implement
-        return ''
+        return prefix+string
         // END TODO
     }
 
@@ -24,7 +24,7 @@ class Starter {
      */
     AddSuffixToString(suffix, string) {
         // TODO: Implement
-        return ''
+        return string+suffix
         // END TODO
     }
 
@@ -38,7 +38,8 @@ class Starter {
      */
     FindIndexOfCharacterInString(character, string) {
         // TODO: Implement
-        return 0
+        let position = string.search(character)
+        return position
         // END TODO
     }
 
@@ -50,7 +51,8 @@ class Starter {
      */
     AddItemToArray(item, array) {
         // TODO: Implement
-        return array
+        let addto = array.concat(item)
+        return addto
         // END TODO
     }
 
@@ -66,8 +68,14 @@ class Starter {
      * @example AddItemToArrayAtIndex(5, [2, 3, 4], -1) // output: [5, 2, 3, 4]
      */
     AddItemToArrayAtIndex(item, array, index) {
-        // TODO: Implement
-        return array
+        // TODO: 
+        if (index > 0) {
+            let addtospot = array.splice(index,item)
+            return array.concat(item,addtospot)
+        } else {
+            return [item].concat(array)
+        }
+        
         // END TODO
     }
 
@@ -84,7 +92,12 @@ class Starter {
      */
     RemoveItemAtIndexFromArray(index, array) {
         // TODO: Implement
-        return 0
+        if (index >= 0 && index < array.length){
+            let removespot = array.splice(index+1)
+            return array[array.length-1]
+        } else {
+            return -1
+        }
         // END TODO
     }
 
@@ -93,11 +106,14 @@ class Starter {
      * @param {string[]} array 
      * @returns The index of the item in the array, or -1 if not found.
      * @example FindIndexOfItemInArray('cat', ['dog', 'cat', 'bird']) // output: 1
-     * @example FindIndexOfItemInArray('air', ['bird', 'plane', 'superman']) // output: 1
+     * @example FindIndexOfItemInArray('air', ['bird', 'plane', 'superman']) // output: -1
      */
     FindIndexOfItemInArray(item, array) {
         // TODO: Implement
-        return 0
+        let position1 = array.findIndex((value)=>{
+            return item === value
+        })
+        return position1
         // END TODO
     }
     
@@ -110,6 +126,7 @@ class Starter {
      */
     AddItemToObject(key, value, object) {
         // TODO: Implement
+        object[key]=value
         return object
         // END TODO
     }
@@ -123,6 +140,7 @@ class Starter {
      */
     RemoveItemFromObject(key, object) {
         // TODO: Implement
+        delete object[key]
         return object
         // END TODO
     }
@@ -131,7 +149,27 @@ class Starter {
 let starter = new Starter()
 
 // TODO: Call method on "starter" object
-let result = starter.RemoveItemFromObject('name', { name: 'Bob', age: 90 })
-// END TODO
+// // let result1 = starter.AddPrefixToString('auto', 'mobile')
+// // let result2 = starter.AddSuffixToString('less', 'harm')
+// // let result3 = starter.FindIndexOfCharacterInString('s', 'harmless')
+// // let result4 = starter.AddItemToArray(5, [1,2,3,4])
+// // let result5 = starter.AddItemToArrayAtIndex(3, [1,2,4,5], 2)
+// let result7 = starter.FindIndexOfItemInArray('frog', ['dog', 'cat', 'bird'])
+// // // let result = starter.RemoveItemFromObject('name', { name: 'Bob', age: 90 })
+// let result8 = starter.RemoveItemAtIndexFromArray(2, [2, 3, 4])
+let result9 = starter.RemoveItemFromObject('phone', { name: 'Bob', age: 90 })
+// // // END TODO
 
-console.log(result)
+console.log(result9)
+// // console.log(result1)
+// // console.log(result2)
+// // console.log(result3)
+// // console.log(result4)
+// // console.log(result5)
+// console.log(starter.AddItemToArrayAtIndex(3, [1,2,4,5], 4))
+// console.log(starter.AddItemToArrayAtIndex(3, [1,2,4,5], 0))
+// console.log(result7)
+// console.log(starter.AddItemToObject('name', 'Bob', { age: 90 }))
+// let x = [1,2,3]
+// x[1] = 50
+// console.log(x)
